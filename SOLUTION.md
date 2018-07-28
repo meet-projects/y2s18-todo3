@@ -7,7 +7,7 @@ function readTodoItems() {
   $("li").each(function() {
     var info = {};
     info.complete = $(this).find(".todo-item-checkbox").first().hasClass("checked");
-    info.task = $(this).find("input[name='todo-item-text']").val();
+    info.name = $(this).find("input[name='todo-item-text']").val();
     todoInfo.push(info);
   });
 

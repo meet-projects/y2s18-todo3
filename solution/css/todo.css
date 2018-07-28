@@ -47,9 +47,26 @@ button#add-btn:active {
     background-color: #0e0;
 }
 
-#go-btn {
+#save-btn {
     position: absolute;
     right: 67px;
+    top: 30px;
+    height: 30px;
+    width: 30px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #00d;
+    border: 0;
+    outline: none;
+}
+
+button#save-btn:hover {
+    background-color: #04f;
+}
+
+#go-btn {
+    position: absolute;
+    right: 107px;
     top: 30px;
     height: 30px;
     width: 30px;
@@ -61,12 +78,12 @@ button#add-btn:active {
 }
 
 button#go-btn:hover {
-    background-color: #d00;
+    background-color: #f00;
 }
 
 #todo-list-name {
     position: absolute;
-    right: 203px;
+    right: 243px;
     top: 30px;
     height: 30px;
     width: 100px;
@@ -77,7 +94,7 @@ button#go-btn:hover {
 
 #todo-list-password {
     position: absolute;
-    right: 100px;
+    right: 140px;
     top: 30px;
     height: 30px;
     width: 100px;

@@ -3,7 +3,7 @@ function toggleComplete(obj) {
   $(obj).toggleClass("checked");
 }
 
-function createTodoItem() {
+function createTodoItem(name, complete) {
   var rawHtml = `
   <li>
     <table class="todo-item">
@@ -26,6 +26,10 @@ function createTodoItem() {
   </li>`
 
   var newItem = $.parseHTML(rawHtml);
+  $(newItem).find("input[name='todo-item-text']").val(name);
+  if (complete) {
+    $(newItem).find(".todo-item-checkbox").addClass("checked");
+  }
 
   $("#todo-items-list").append(newItem);
 }
@@ -42,7 +46,7 @@ function readTodoItems() {
   $("li").each(function() {
     var info = {};
     info.complete = $(this).find(".todo-item-checkbox").first().hasClass("checked");
-    info.task = $(this).find("input[name='todo-item-text']").val();
+    info.name = $(this).find("input[name='todo-item-text']").val();
     todoInfo.push(info);
   });
 
@@ -57,13 +61,13 @@ function readPassword() {
   return $("#todo-list-password").val();
 }
 
-function showMessage() {
+function showMessage(message) {
+  $("#message").html(message);
   $("#message").removeClass("invisible");
 
   setTimeout(function () {
     $("#message").addClass("invisible");
   }, 2000);
-
 }
 
 function pullTodoList() {
@@ -77,10 +81,14 @@ function pullTodoList() {
       password: password,
     },
     success: function(data) {
-      console.log(data);
+      showMessage("<p style='color: green'>Retrieved todo list successfully.</p>");
+      $("li").remove();
+      for (var i = 0; i < data.length; i++) {
+        createTodoItem(data[i].name, data[i].complete);
+      }
     },
     error: function(data) {
-      console.log(data);
+      showMessage("<p style='color: red'>Failed to retrieve todo list.</p>");
     }
   });
 }
@@ -98,10 +106,10 @@ function pushTodoList() {
       tasks: tasks
     },
     success: function(data) {
-      console.log(data);
+      showMessage("<p style='color: green'>Saved todo list successfully.</p>");
     },
     error: function(data) {
-      console.log(data);
+      showMessage("<p style='color: red'>Failed to save todo list.</p>");
     }
   });
 }

@@ -11,10 +11,11 @@
   <main class="container">
     <h1>To-Do List</h1>
 
-    <button onclick="createTodoItem()" id="add-btn"><i class="fas fa-plus"></i></button>
+    <button onclick="createTodoItem('', false)" id="add-btn"><i class="fas fa-plus"></i></button>
     <input id="todo-list-name" name="listName" placeholder="List Name" />
     <input id="todo-list-password" name="password" placeholder="Password" />
-    <button id="go-btn"><i class="fas fa-arrow-right"></i></button>
+    <button onclick="pullTodoList()" id="go-btn"><i class="fas fa-arrow-right"></i></button>
+    <button onclick="pushTodoList()" id="save-btn"><i class="fas fa-save"></i></button>
     <div id="todo-items">
       <ul id="todo-items-list">
 
