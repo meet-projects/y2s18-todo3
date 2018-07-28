@@ -1,4 +1,50 @@
+<!DOCTYPE html>
 <html>
 
+<head>
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="./css/all.min.css" />
+  <link rel="stylesheet" href="./css/todo.css" />
+</head>
+
+<body>
+  <main class="container">
+    <h1>To-Do List</h1>
+
+    <button onclick="createTodoItem()" id="add-btn"><i class="fas fa-plus"></i></button>
+    <input id="todo-list-name" name="listName" placeholder="List Name" />
+    <input id="todo-list-password" name="password" placeholder="Password" />
+    <button id="go-btn"><i class="fas fa-arrow-right"></i></button>
+    <button id="save-btn"><i class="fas fa-save"></i></button>
+    <div id="todo-items">
+      <ul id="todo-items-list">
+
+        <!-- To-do Item -->
+        <li>
+          <table class="todo-item">
+            <tr>
+              <td onclick="toggleComplete(this)" class="todo-item-checkbox">
+                <i class="far fa-check-circle"></i>
+              </td>
+
+              <td class="todo-item-body">
+                <input type="text" name="todo-item-text">
+              </td>
+
+              <td onclick="deleteTodoItem(this)" class="todo-item-buttons">
+                <i class="far fa-trash-alt"></i>
+              </td>
+
+            </tr>
+          </table>
+        </li>
+
+      </ul>
+    </div>
+  </main>
+
+  <script src="./js/jquery-3.3.1.js"></script>
+  <script src="./js/todo.js"></script>
+</body>
 
 </html>
