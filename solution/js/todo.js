@@ -74,7 +74,7 @@ function pullTodoList() {
   var list = readListName();
   var password = readPassword();
 
-  $.ajax("http://localhost:3000/todo", {
+  $.ajax("https://api.meet.sh/todo", {
     method: "POST",
     data: {
       list: list,
@@ -98,7 +98,7 @@ function pushTodoList() {
   var password = readPassword();
   var tasks = readTodoItems();
 
-  $.ajax("http://localhost:3000/todo/edit", {
+  $.ajax("https://api.meet.sh/todo/edit", {
     method: "POST",
     data: {
       list: list,
