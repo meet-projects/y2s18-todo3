@@ -75,7 +75,7 @@ function pullTodoList() {
   var password = readPassword();
 
   $.ajax("https://api.meet.sh/todo", {
-    method: "POST",
+    method: "GET",
     data: {
       list: list,
       password: password,
