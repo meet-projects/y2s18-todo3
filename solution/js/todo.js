@@ -70,11 +70,13 @@ function showMessage(message) {
   }, 2000);
 }
 
+var API_URL = "https://api.meet.sh/todo";
+
 function pullTodoList() {
   var list = readListName();
   var password = readPassword();
 
-  $.ajax("https://api.meet.sh/todo", {
+  $.ajax(API_URL + "/read", {
     method: "GET",
     data: {
       list: list,
@@ -98,7 +100,7 @@ function pushTodoList() {
   var password = readPassword();
   var tasks = readTodoItems();
 
-  $.ajax("https://api.meet.sh/todo/edit", {
+  $.ajax(API_URL + "/edit", {
     method: "POST",
     data: {
       list: list,
